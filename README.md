@@ -1,21 +1,22 @@
-# 1/5 of the International College Student EV Self-Driving Competition
-2025 국제 대학생 EV wkdbfwngod rudwlseoghl 1/5 부문 Lane Detection + Control의 모든 것
+# 🏎️ 2025 국제 대학생 EV 자율주행 대회
 
-본 프로젝트는 ROS 2 환경에서 자율주행 차량의 차선 인식 및 경로 계획, 차량 제어를 목적으로 개발되었습니다. 딥러닝 기반의 YOLOPv2 모델과 이미지 처리 기법을 결합하여 정확한 차선 탐지 및 안정적인 주행 제어를 구현했습니다.
+## 📌 부문: Lane Detection & Control (1/5 Category)
 
-프로젝트 개요
+본 프로젝트는 **ROS 2 환경**에서 자율주행 차량의 **차선 인식 및 경로 계획, 차량 제어**를 목적으로 개발되었습니다. 딥러닝 기반의 **YOLOPv2 모델**과 이미지 처리 기법을 결합하여 정확한 차선 탐지 및 안정적인 주행 제어를 구현했습니다.
 
-이 프로젝트는 다음의 핵심 기능을 포함하고 있습니다.
+---
 
-Lane Detection: YOLOPv2와 이미지 처리 기법으로 차선 검출
+## 🚩 프로젝트 주요 기능
 
-Path Planning: 차선을 기반으로 안정적인 주행 경로 생성
+- ✅ **Lane Detection**: YOLOPv2와 다양한 이미지 처리 기법을 이용한 정밀한 차선 검출
+- 🛣️ **Path Planning**: 실시간 차선 데이터를 기반으로 부드럽고 안정적인 주행 경로 생성
+- 🎮 **Vehicle Control**: Pure Pursuit 알고리즘 기반 차량 제어 (스티어링 각도 및 속도)
 
-Vehicle Control: Pure Pursuit 알고리즘을 사용한 차량 제어 (스티어링 각도 및 속도)
+---
 
+## 📂 프로젝트 디렉터리 구조
 
-프로젝트 디렉터리 구조
-
+```
 jeju_ws
 ├── src
 │   └── jeju
@@ -43,45 +44,55 @@ jeju_ws
     ├── CMakeLists.txt
     └── msg
         └── LanePoints.msg
+```
 
-yolopv2 모델은 your_ws/src/jeju/data/weights/ 안에 위치해아하며 설치 링크는 다음과 같다
-https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt
+---
 
+## ⚙️ 모델 설치
 
-핵심 기능 설명
+YOLOPv2 모델을 다운로드하고 아래 경로에 저장하세요:
+```
+your_ws/src/jeju/data/weights/yolopv2.pt
+```
 
-1. 차선 탐지 (lane.py)
+- [📥 YOLOPv2 모델 다운로드](https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt)
 
-YOLOPv2를 이용한 lane mask 생성
+---
 
-Bird’s Eye View 변환, Sobel 필터, Morphology 필터 적용
+## 🔍 핵심 기능 상세 설명
 
-Sliding Window 알고리즘을 통한 차선 픽셀 추출
+### 1️⃣ **차선 탐지 (lane.py)**
 
-DBSCAN 클러스터링 및 RANSAC 알고리즘을 이용한 이상치 제거
+- YOLOPv2로 lane mask 생성
+- Bird’s Eye View 변환, Sobel 필터, Morphology 필터 적용
+- Sliding Window 알고리즘을 통한 차선 픽셀 추출
+- DBSCAN 클러스터링 및 RANSAC 알고리즘을 이용한 이상치 제거
+- 결과를 ROS 토픽으로 발행 (`LanePoints`)
 
-결과를 ROS 토픽으로 발행 (LanePoints)
+### 2️⃣ **경로 계획 (path.py)**
 
-2. 경로 계획 (path.py)
+- 수신한 차선 포인트를 기반으로 최적 경로 계산
+- 좌우 차선 존재 여부에 따라 동적 경로 생성
+- Cubic Spline 보간을 통한 부드러운 경로 생성
+- 최종 경로를 ROS 토픽으로 발행 (`Float32MultiArray`)
 
-수신한 차선 포인트를 기반으로 경로 좌표 계산
+### 3️⃣ **차량 제어 (highcontrol.py)**
 
-좌우 차선 여부에 따라 유연한 경로 생성
+- Pure Pursuit 알고리즘 기반 스티어링 각도 및 속도 계산
+- 차량 상태 및 목표점에 따라 실시간 제어 명령 생성
+- 스티어링 각도와 속도를 ROS 토픽으로 발행 (`Float32`)
 
-Cubic Spline 보간을 사용한 부드러운 경로 생성
+### 4️⃣ **제어 명령 처리 (control.py)**
 
-최종 경로를 ROS 토픽으로 발행 (Float32MultiArray)
+- ROS 토픽에서 차량 제어 명령을 수신 및 로그 출력
+- Arduino 기반 차량 하드웨어와의 통신을 위한 기반 코드 제공
 
-3. 차량 제어 (highcontrol.py)
+---
 
-Pure Pursuit 알고리즘을 사용한 스티어링 각도 및 속도 계산
+## 📊 결과 시각화
 
-차량 상태 및 목표점에 따라 실시간 제어값 결정
+OpenCV를 통해 실시간으로 아래의 결과를 확인할 수 있습니다:
+- 차선 탐지 및 경로 생성
+- Pure Pursuit 기반 제어 상황
 
-스티어링 각도와 속도를 ROS 토픽으로 발행 (Float32)
-
-4. 제어 명령 처리 (control.py)
-
-ROS 토픽에서 차량 제어 명령을 수신하고 로그 출력
-
-향후 Arduino와의 시리얼 통신 연계 가능
+---
