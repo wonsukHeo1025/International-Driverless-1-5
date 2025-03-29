@@ -13,17 +13,6 @@ Path Planning: 차선을 기반으로 안정적인 주행 경로 생성
 
 Vehicle Control: Pure Pursuit 알고리즘을 사용한 차량 제어 (스티어링 각도 및 속도)
 
-기술 스택
-
-Python, ROS 2
-
-OpenCV, NumPy
-
-PyTorch (YOLOPv2)
-
-CUDA (GPU 가속)
-
-Pure Pursuit 알고리즘
 
 프로젝트 디렉터리 구조
 
@@ -54,6 +43,10 @@ jeju_ws
     ├── CMakeLists.txt
     └── msg
         └── LanePoints.msg
+
+yolopv2 모델은 your_ws/src/jeju/data/weights/ 안에 위치해아하며 설치 링크는 다음과 같다
+https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt
+
 
 핵심 기능 설명
 
