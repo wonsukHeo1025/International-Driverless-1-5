@@ -99,6 +99,7 @@ your_ws/src/jeju/data/weights/yolopv2.pt
 ---
 
 ## 📊 결과 시각화
+![2](https://github.com/user-attachments/assets/082ee031-ace0-4c5d-bb3e-634fe317030e)
 
 OpenCV를 통해 실시간으로 아래의 결과를 확인할 수 있습니다:
 - 차선 탐지 및 경로 생성
