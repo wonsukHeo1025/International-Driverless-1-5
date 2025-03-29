@@ -1,6 +1,0 @@
-[console_scripts]
-control_node = jeju.control:main
-highcontrol_node = jeju.highcontrol:main
-lane_node = jeju.lane:main
-path_node = jeju.path:main
-
