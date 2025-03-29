@@ -1,6 +1,7 @@
 # 🏎️ 2025 국제 대학생 EV 자율주행 대회 1/5부문
 
 ## 역할: Lane Detection + Vehicle Control
+![KakaoTalk_20250329_205429085](https://github.com/user-attachments/assets/d937d2ad-5fb2-4c91-bbfe-e3ceb287ad90)
 
 본 프로젝트는 **ROS 2 환경**에서 자율주행 차량의 **차선 인식 및 경로 계획, 차량 제어**를 목적으로 개발되었습니다. 딥러닝 기반의 **YOLOPv2 모델**과 이미지 처리 기법을 결합하여 정확한 차선 탐지 및 안정적인 주행 제어를 구현했습니다.
 
