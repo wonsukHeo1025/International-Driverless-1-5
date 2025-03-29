@@ -1,3 +1,6 @@
+# 1/5 of the International College Student EV Self-Driving Competition
+2025 국제 대학생 EV wkdbfwngod rudwlseoghl 1/5 부문 Lane Detection + Control의 모든 것
+
 본 프로젝트는 ROS 2 환경에서 자율주행 차량의 차선 인식 및 경로 계획, 차량 제어를 목적으로 개발되었습니다. 딥러닝 기반의 YOLOPv2 모델과 이미지 처리 기법을 결합하여 정확한 차선 탐지 및 안정적인 주행 제어를 구현했습니다.
 
 프로젝트 개요
