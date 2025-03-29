@@ -1,0 +1,4 @@
+Invoking command in '/home/wonsuk1025/jeju_ws/build/my_lane_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wonsuk1025/jeju_ws/install/jeju:/opt/ros/humble /usr/bin/cmake --build /home/wonsuk1025/jeju_ws/build/my_lane_msgs -- -j16 -l16
+Invoked command in '/home/wonsuk1025/jeju_ws/build/my_lane_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wonsuk1025/jeju_ws/install/jeju:/opt/ros/humble /usr/bin/cmake --build /home/wonsuk1025/jeju_ws/build/my_lane_msgs -- -j16 -l16
+Invoking command in '/home/wonsuk1025/jeju_ws/build/my_lane_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wonsuk1025/jeju_ws/install/jeju:/opt/ros/humble /usr/bin/cmake --install /home/wonsuk1025/jeju_ws/build/my_lane_msgs
+Invoked command in '/home/wonsuk1025/jeju_ws/build/my_lane_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wonsuk1025/jeju_ws/install/jeju:/opt/ros/humble /usr/bin/cmake --install /home/wonsuk1025/jeju_ws/build/my_lane_msgs

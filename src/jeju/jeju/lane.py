@@ -302,7 +302,7 @@ def parse_args():
                         default='/home/wonsuk1025/jeju_ws/src/jeju/data/weights/yolopv2.pt',
                         help='모델 가중치 파일 경로')
     parser.add_argument('--source', type=str,
-                        default='/home/wonsuk1025/jeju_ws/src/jeju/data/7_6.mp4',
+                        default='/home/wonsuk1025/jeju_ws/src/jeju/data/28_1.mp4',
                         help='비디오 소스 (파일 경로 또는 웹캠이면 0)')
     parser.add_argument('--img-size', type=int, default=640, help='추론 이미지 크기 (정사각형)')
     parser.add_argument('--device', default='0', help='cuda device (예: 0) 또는 cpu')
