@@ -59,20 +59,20 @@ jeju_ws
 
 ---
 
-## ⚙️ 모델 설치
+## ⚙모델 설치
 
 YOLOPv2 모델을 다운로드하고 아래 경로에 저장:
 ```
 your_ws/src/jeju/data/weights/yolopv2.pt
 ```
 
-- [📥 YOLOPv2 모델 다운로드](https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt)
+- [YOLOPv2 모델 다운로드](https://github.com/CAIC-AD/YOLOPv2/releases/download/V0.0.1/yolopv2.pt)
 
 ---
 
-## 🔍 핵심 기능 상세 설명
+## 핵심 기능 상세 설명
 
-### 1️⃣ **차선 탐지 (lane.py)**
+### 1️**차선 탐지 (lane.py)**
 
 - YOLOPv2로 lane mask 생성
 - Bird’s Eye View 변환, Sobel 필터, Morphology 필터 적용
@@ -80,30 +80,30 @@ your_ws/src/jeju/data/weights/yolopv2.pt
 - DBSCAN 클러스터링 및 RANSAC 알고리즘을 이용한 이상치 제거
 - 결과를 ROS 토픽으로 발행 (`LanePoints`)
 
-### 2️⃣ **경로 계획 (path.py)**
+### 2️**경로 계획 (path.py)**
 
 - 수신한 차선 포인트를 기반으로 최적 경로 계산
 - 좌우 차선 존재 여부에 따라 동적 경로 생성
 - Cubic Spline 보간을 통한 부드러운 경로 생성
 - 최종 경로를 ROS 토픽으로 발행 (`Float32MultiArray`)
 
-### 3️⃣ **차량 제어 (highcontrol.py)**
+### 3️**차량 제어 (highcontrol.py)**
 
 - Pure Pursuit 알고리즘 기반 스티어링 각도 및 속도 계산
 - 차량 상태 및 목표점에 따라 실시간 제어 명령 생성
 - 스티어링 각도와 속도를 ROS 토픽으로 발행 (`Float32`)
 
-### 4️⃣ **제어 명령 처리 (control.py)**
+### 4️**제어 명령 처리 (control.py)**
 
 - ROS 토픽에서 차량 제어 명령을 수신 및 로그 출력
 - Arduino 기반 차량 하드웨어와의 통신을 위한 기반 코드 제공
 
 ---
 
-## 📊 결과 시각화
+## 결과 시각화
 ![2](https://github.com/user-attachments/assets/082ee031-ace0-4c5d-bb3e-634fe317030e)
 
-OpenCV를 통해 실시간으로 아래의 결과를 확인할 수 있습니다:
+OpenCV를 통해 실시간으로 결과 확인:
 - 차선 탐지 및 경로 생성
 - Pure Pursuit 기반 제어 상황
 
